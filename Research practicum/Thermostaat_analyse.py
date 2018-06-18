@@ -1,22 +1,13 @@
 import matplotlib.pyplot as plt
+import functions
 import math
 
-files = ['Thermostaat_0.csv','Thermostaat_1.csv','Thermostaat_2.csv','Thermostaat_3.csv']
+def thermostaat_plot()
+    files = ['csv/Thermo_0.csv','csv/Thermo.csv','csv/Thermo_2.csv','csv/Thermo_3.csv']
 
-for bestand in files:
-    input_file = open(bestand, 'r')
+    for bestand in files:
+        plt.plot(import_data(bestand), 'r.')
+    plt.show()
 
-
-    Tijd = []
-    Spanning = []
-
-    for line in input_file:
-        data_opgeknipt = line.split(',')
-        #if data_opgeknipt[1] != "-2.56000" and data_opgeknipt[1] != "-2.54000":
-        Tijd.append(float(data_opgeknipt[0]))
-        Spanning.append(float(data_opgeknipt[1]))
-
-
-
-    plt.plot(Tijd, Spanning, 'r.')
-plt.show()
+if __name__ == "__main__":
+    thermostaat_plot()
