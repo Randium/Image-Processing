@@ -10,16 +10,18 @@ def import_data(csv_file):
     try:
         with open(csv_file, 'r') as csvfile:
             reader = csv.reader(csvfile)
-            table = [[e for e in r] for r in reader]
-        return table
+            tab1, tab2 = []
+            for r in reader:
+                tab1.append(r[0])
+                tab2.append(r[1])
+        return [tab1,tab2]
     except FileNotFoundError:
         print("ERROR: The program called a file that did not exist: {} does not appear to exist.".format(csv_file))
         return []
 
-# Writes a table to a given file, effectively overwriting its previous contents.
-# Returns true if successful, false if unsuccessful.
 def save(table,csv_file):
     """Save a table in a *.csv-file. Overwrites the file if the file already exists.
+    Given the way your thermostat csv-files look, don't use this one. Ask for the function if needed.
     
     Keyword arguments:
     table -> the list to be saved
