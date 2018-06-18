@@ -14,7 +14,7 @@ def import_data(csv_file):
             for r in reader:
                 tab1.append(r[0])
                 tab2.append(r[1])
-        return [tab1,tab2]
+        return tab1,tab2
     except FileNotFoundError:
         print("ERROR: The program called a file that did not exist: {} does not appear to exist.".format(csv_file))
         return []
